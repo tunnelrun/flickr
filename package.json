@@ -1,0 +1,38 @@
+{
+  "name": "tunnelrun",
+  "description": "Tunnel Run",
+  "version": "0.1.0",
+  "license": "CC0-1.0",
+  "repository": "https://github.com/gazebos/gazebos",
+  "homepage": "https://github.com/gazebos/gazebos",
+  "bugs": {
+    "url": "https://github.com/gazebos/gazebos/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "http-proxy": "^1.16.2",
+    "node-static": "^0.7.9",
+    "recrawler": "^2.0.0",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "cheerio": "^0.22.0",
+    "nodemon": "^1.11.0",
+    "recrawler": "^2.0.0",
+    "request": "^2.81.0",
+    "semistandard": "^11.0.0",
+    "shx": "^0.2.2",
+    "snazzy": "^7.0.0"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "nodemon index.js",
+    "prod": "node index.js"
+  },
+  "semistandard": {
+    "ignore": [
+      "_includes/js/ga.js",
+      "_includes/js/loadcss.min.js"
+    ]
+  }
+}

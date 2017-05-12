@@ -1,0 +1,25 @@
+{
+  "name": "tunnelrun",
+  "description": "Proxy images.",
+  "repository": "https://github.com/cvan/tunnelrun",
+  "env": {
+    "PORT": {
+      "description": "Port on which to run the server (e.g., `7000`).",
+      "value": 7000,
+      "required": false
+    }
+  },
+  "keywords": [
+    "tunnelrun",
+    "tunnel-run",
+    "tunnel",
+    "proxy",
+    "proxies",
+    "cors",
+    "image",
+    "assets",
+    "service",
+    "flickr"
+    "cache"
+  ]
+}

@@ -1,0 +1,1 @@
+www: npm run prod
