@@ -7,8 +7,8 @@ Proxy images from [Flickr](https://flickr.com/).
 
 ## Usage
 
-1. [Load **https://tunnel.run/**](https://flickr.tunnel.run/), and _dive_ right in!
-2. Find a _public-domain_ [Flickr](https://flickr.com/) image and append it like so: [**https://tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/**](https://tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/)
+1. [Load **https://flickr.tunnel.run/**](https://flickr.tunnel.run/), and _dive_ right in!
+2. Find a _public-domain_ [Flickr](https://flickr.com/) image and append it like so: [**https://flickr.tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/**](https://flickr.tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/)
 3. Enjoy! :smile:
 
 
@@ -35,11 +35,15 @@ Feel free to [open a pull request](https://github.com/tunnelrun/flickr/pulls) or
 
 ## Development
 
-From the command line, run this command to start the local Node development server:
+From the command line, run this command to start the local Node server:
 
 ```sh
 npm start
 ```
+
+## Deployment
+
+Upon commits pushed to `master` (or pull request merged to `master`), a new version of the site is automatically deployed with Heroku to [production](https://flickr.tunnel.run/).
 
 
 ## License
