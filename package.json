@@ -1,12 +1,12 @@
 {
-  "name": "tunnelrun",
-  "description": "Tunnel Run",
+  "name": "tunnelrun.flickr",
+  "description": "Proxy images from Flickr.",
   "version": "0.1.0",
   "license": "CC0-1.0",
-  "repository": "https://github.com/gazebos/gazebos",
-  "homepage": "https://github.com/gazebos/gazebos",
+  "repository": "https://github.com/tunnelrun/flickr",
+  "homepage": "https://github.com/tunnelrun/flickr",
   "bugs": {
-    "url": "https://github.com/gazebos/gazebos/issues"
+    "url": "https://github.com/tunnelrun/flickr/issues"
   },
   "main": "index.js",
   "dependencies": {

@@ -1,6 +1,6 @@
-# Tunnel Run
+# Tunnel Run: Flickr
 
-Proxy images.
+Proxy images from Flickr.
 
 **[Try it out!](https://tunnel.run/)**
 
