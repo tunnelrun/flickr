@@ -8,7 +8,7 @@ Proxy images from [Flickr](https://flickr.com/).
 ## Usage
 
 1. [Load **https://tunnel.run/**](https://flickr.tunnel.run/), and _dive_ right in!
-2. Find a _public-domain_ [Flickr](https://flickr.com/) image and append it like so:** https://tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/**
+2. Find a _public-domain_ [Flickr](https://flickr.com/) image and append it like so: [**https://tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/**](https://tunnel.run/https://www.flickr.com/photos/dmswart/32620308184/in/pool-artpanoramas/)
 3. Enjoy! :smile:
 
 
