@@ -4,7 +4,6 @@ const crypto = require('crypto');
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
-const urlParse = require('url').parse;
 
 const recrawler = require('recrawler');
 const request = require('request');
@@ -29,8 +28,6 @@ var staticServer = new static.Server(rootDir, {
 });
 
 const server = http.createServer((req, res) => {
-  const reqPathame = urlParse(req.url).pathname;
-
   // Example URL formats:
   // - https://www.flickr.com/photos/hamburgerjung/34539117106
   // - https://www.flickr.com/photos/hamburgerjung/34539117106/
