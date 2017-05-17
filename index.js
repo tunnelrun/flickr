@@ -52,6 +52,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (photoUser && photoId) {
+    const flickrDownloadUrl = 'https://www.flickr.com/photos/' + photoUser + '/' + photoId + '/sizes/o/';
     const hash = crypto.createHash('sha1').update(flickrDownloadUrl).digest('hex');
     const hashPath = hash + '.jpg';
     const hashUrl = '/.cache/' + hashPath;
