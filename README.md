@@ -43,7 +43,7 @@ npm start
 
 ## Deployment
 
-Upon commits pushed to `master` (or pull request merged to `master`), a new version of the site is automatically deployed with Heroku to [production](https://flickr.tunnel.run/).
+Upon commits pushed to `master` (and pull requests merged to `master`), a new version of the site is automatically deployed with Heroku to [production](https://flickr.tunnel.run/).
 
 
 ## License
