@@ -10,10 +10,10 @@
   },
   "main": "index.js",
   "dependencies": {
-    "http-proxy": "^1.16.2",
+    "cross-env": "^5.0.0",
     "node-static": "^0.7.9",
-    "recrawler": "^2.0.0",
-    "through2": "^2.0.3"
+    "nunjucks": "^3.0.0",
+    "recrawler": "^2.0.0"
   },
   "devDependencies": {
     "cheerio": "^0.22.0",
@@ -26,8 +26,8 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "nodemon index.js",
-    "prod": "node index.js"
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "prod": "cross-env NODE_ENV=production node index.js"
   },
   "semistandard": {
     "ignore": [
