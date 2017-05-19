@@ -8,7 +8,6 @@ const querystring = require('querystring');
 const urlParse = require('url').parse;
 
 const nunjucks = require('nunjucks');
-const template = require('template')();
 const recrawler = require('recrawler');
 const request = require('request');
 const static = require('node-static');
