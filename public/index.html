@@ -207,6 +207,18 @@
         margin-bottom: 1rem;
       }
 
+      .label em a {
+        color: rgba(0,0,0,.75);
+      }
+
+      .label em {
+        color: rgba(0,0,0,.5);
+        /*opacity: .75;*/
+        font-size: .9rem;
+        padding-left: .5rem;
+        font-style: normal;
+      }
+
       /* Input `:focus` styles adapted from those on https://github.com/ */
       input[type="text"] {
         /*border: 1px solid #d1d5da;*/
@@ -311,7 +323,7 @@
     <main class="content" id="content">
       <form class="manifest-form" id="manifest-form" action="/" method="get">
         <label>
-          <span class="label">URL of image</span>
+          <span class="label">URL of image <em>(Examples: <a href="https://www.flickr.com/groups/equirectangular/">Flickr&rsquo;s Equirectangular photo pool</a>)</em></span>
           <input type="text" placeholder="Example: https://www.flickr.com/photos/dmswart/32620308184/" class="url" id="url" autofocus autocapitalize="off" required value="https://www.flickr.com/photos/dmswart/32620308184/">
         </label>
       </form>
