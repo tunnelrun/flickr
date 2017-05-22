@@ -27,12 +27,14 @@ try {
 
 const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates'));
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET',
+  'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Range'
+};
+
 const staticServer = new static.Server(rootDir, {
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Content-Type'
-  }
+  headers: corsHeaders
 });
 
 const server = http.createServer((req, res) => {
@@ -76,9 +78,9 @@ const server = http.createServer((req, res) => {
         return console.log(err);
       }
 
-      res.setHeader('Access-Control-Allow-Origin', '*');
-      res.setHeader('Access-Control-Allow-Methods', 'GET');
-      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      Object.keys(corsHeaders).forEach(key => {
+        res.setHeader(key, corsHeaders[key]);
+      });
 
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(nunjucksRes.toString());
