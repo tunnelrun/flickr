@@ -14,7 +14,7 @@
     {%- endif -%}
 
     <link rel="canonical" href="{{ page.start_url }}">
-    <link rel="manifest" href="{{ page.start_url }}/manifest.webmanifest">
+    <link rel="manifest" href="{{ page.scope }}/manifest.webmanifest">
 
     {%- if page.processed_best_icon -%}
       <link rel="icon"{% if page.processed_best_icon.sizes %} sizes="{{ page.processed_best_icon.sizes }}"{% endif %} href="{{ page.processed_best_icon.src }}">
@@ -30,7 +30,7 @@
     {% if page.description -%}
       <meta property="og:description" content="{{ page.description }}">
     {%- endif %}
-    <meta property="og:image" content="https://flickr.tunnel.run/icon.png">
+    <meta property="og:image" content="{{ page.icons[1].src }}">
 
     <meta name="twitter:card" content="summary">
 

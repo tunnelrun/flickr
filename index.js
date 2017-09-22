@@ -79,6 +79,7 @@ const server = http.createServer((req, res) => {
       description: reqQuery.description || (flickrDownloadUrl ? '360° Panorama' : 'Proxy images from Flickr'),
       display: reqQuery.display || 'fullscreen',
       start_url: reqQuery.start_url || (baseUrl + pageUrl + '/vr.html'),
+      scope: reqQuery.scope || (baseUrl + pageUrl),
       icons: [
         {
           src: baseUrl + '/icon.svg',
@@ -94,7 +95,7 @@ const server = http.createServer((req, res) => {
     };
 
     if (flickrDownloadUrl) {
-      page.screenshots = [
+      manifest.screenshots = [
         {
           src: baseUrl + pageUrl + '.jpg',
           type: 'image/jpeg'
