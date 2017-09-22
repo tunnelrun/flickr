@@ -39,9 +39,11 @@
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
   </head>
   <body>
-    <a-assets>
-      <img id="scene-sky" src="{{ page.screenshots[0].src }}">
-    </a-assets>
-    <a-sky src="#scene-sky"></a-sky>
+    <a-scene>
+      <a-assets>
+        <img id="scene-sky" src="{{ page.screenshots[0].src }}">
+      </a-assets>
+      <a-sky src="#scene-sky"></a-sky>
+    </a-scene>
   </body>
 </html>
