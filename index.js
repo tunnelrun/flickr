@@ -75,17 +75,32 @@ const server = http.createServer((req, res) => {
     manifest = {
       lang: reqQuery.lang || 'en',
       dir: reqQuery.dir || 'ltr',
-      name: reqQuery.name || '360° Panorama',
-      description: reqQuery.description || '360° Panorama',
+      name: reqQuery.name || (flickrDownloadUrl ? '360° Panorama' : 'TunnelRun'),
+      description: reqQuery.description || (flickrDownloadUrl ? '360° Panorama' : 'Proxy images from Flickr'),
       display: reqQuery.display || 'fullscreen',
       start_url: reqQuery.start_url || (baseUrl + pageUrl + '/vr.html'),
-      screenshots: [
+      icons: [
+        {
+          src: baseUrl + '/icon.svg',
+          type: 'image/svg',
+          sizes: '142x142'
+        },
+        {
+          src: baseUrl + '/icon.png',
+          type: 'image/png',
+          sizes: '252x252'
+        }
+      ]
+    };
+
+    if (flickrDownloadUrl) {
+      page.screenshots = [
         {
           src: baseUrl + pageUrl + '.jpg',
           type: 'image/jpeg'
         }
-      ]
-    };
+      ];
+    }
   }
 
   if (page === 'vr') {
