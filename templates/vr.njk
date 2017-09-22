@@ -13,8 +13,8 @@
       <meta name="apple-mobile-web-app-status-bar-style" content="{{ page.apple_mobile_web_app_status-bar_style or page.theme_color }}">
     {%- endif -%}
 
-    <link rel="canonical" href="{{ page.url }}">
-    <link rel="manifest" href="{{ page.url }}/manifest.webmanifest">
+    <link rel="canonical" href="{{ page.start_url }}">
+    <link rel="manifest" href="{{ page.start_url }}/manifest.webmanifest">
 
     {%- if page.processed_best_icon -%}
       <link rel="icon"{% if page.processed_best_icon.sizes %} sizes="{{ page.processed_best_icon.sizes }}"{% endif %} href="{{ page.processed_best_icon.src }}">
@@ -26,7 +26,7 @@
     <meta property="og:title" content="{{ page.name }}">
     <meta property="og:site_name" content="{{ page.name }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ page.url }}">
+    <meta property="og:url" content="{{ page.start_url }}">
     {% if page.description -%}
       <meta property="og:description" content="{{ page.description }}">
     {%- endif %}
@@ -40,7 +40,7 @@
   </head>
   <body>
     <a-scene>
-      <a-sky src="{{ page.pano.src }}"></a-sky>
+      <a-sky src="{{ page.screenshots[0].src }}"></a-sky>
     </a-scene>
   </body>
 </html>
