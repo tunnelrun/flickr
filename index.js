@@ -59,18 +59,38 @@ const server = http.createServer((req, res) => {
   const reqPathname = reqUrl.pathname;
   const reqQuery = querystring.parse((reqUrl.search || '').substr(1));
 
-  if (reqPathname.endsWith('vr.html')) {
-    const pageUrl = req.url.replace('/vr.html', '');
+  let pageUrl;
+  let page = null;
+  let manifest = null;
 
-    let templateCtx = {
-      page: {
-        name: reqQuery.name || '360° Panorama',
-        description: reqQuery.description || '360° Panorama',
-        url: baseUrl + pageUrl,
-        pano: {
-          src: baseUrl + pageUrl + '.jpg'
+  if (reqPathname.endsWith('vr.html')) {
+    pageUrl = req.url.replace(/\/vr.html$/i, '');
+    page = 'vr';
+  } else if (reqPathname.endsWith('manifest.webmanifest')) {
+    pageUrl = req.url.replace(/\/manifest.webmanifest.html$/i, '');
+    page = 'manifest';
+  }
+
+  if (page) {
+    manifest = {
+      lang: reqQuery.lang || 'en',
+      dir: reqQuery.dir || 'ltr',
+      name: reqQuery.name || '360° Panorama',
+      description: reqQuery.description || '360° Panorama',
+      display: reqQuery.display || 'fullscreen',
+      start_url: reqQuery.start_url || (baseUrl + pageUrl),
+      screenshots: [
+        {
+          src: baseUrl + pageUrl + '.jpg',
+          type: 'image/jpeg'
         }
-      }
+      ]
+    };
+  }
+
+  if (page === 'vr') {
+    let templateCtx = {
+      page: manifest
     };
 
     nunjucksEnv.render('vr.njk', templateCtx, (err, nunjucksRes) => {
@@ -82,10 +102,15 @@ const server = http.createServer((req, res) => {
         res.setHeader(key, corsHeaders[key]);
       });
 
-      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
       res.write(nunjucksRes.toString());
       res.end();
     });
+    return;
+  } else if (page === 'manifest') {
+    res.writeHead(200, {'Content-Type': 'application/manifest+json; charset=utf-8'});
+    res.write(JSON.stringify(manifest));
+    res.end();
     return;
   }
 
@@ -100,7 +125,7 @@ const server = http.createServer((req, res) => {
     const hashUrl = '/.cache/' + hashPath;
     const fn = path.join(cacheDir, hashPath);
 
-    fs.stat(fn, function (err, stats) {
+    fs.stat(fn, (err, stats) => {
       if (!err && stats.isFile()) {
         req.url = hashUrl;
         // Read from file.
@@ -114,7 +139,7 @@ const server = http.createServer((req, res) => {
           const url = $(this).attr('src');
           request(url)
             .pipe(fs.createWriteStream(fn))
-            .on('finish', function () {
+            .on('finish', () => {
               req.url = hashUrl;
               staticServer.serve(req, res);
             });
@@ -122,6 +147,6 @@ const server = http.createServer((req, res) => {
       });
     });
   }
-}).listen(port, host, function () {
+}).listen(port, host, () => {
   console.log(`[${nodeEnv}] Listening on http://${host}:${port}`);
 });
