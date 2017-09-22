@@ -67,7 +67,7 @@ const server = http.createServer((req, res) => {
     pageUrl = req.url.replace(/\/vr.html$/i, '');
     page = 'vr';
   } else if (reqPathname.endsWith('manifest.webmanifest')) {
-    pageUrl = req.url.replace(/\/manifest.webmanifest.html$/i, '');
+    pageUrl = req.url.replace(/\/manifest.webmanifest$/i, '');
     page = 'manifest';
   }
 
@@ -78,7 +78,7 @@ const server = http.createServer((req, res) => {
       name: reqQuery.name || '360° Panorama',
       description: reqQuery.description || '360° Panorama',
       display: reqQuery.display || 'fullscreen',
-      start_url: reqQuery.start_url || (baseUrl + pageUrl),
+      start_url: reqQuery.start_url || (baseUrl + pageUrl + '/vr.html'),
       screenshots: [
         {
           src: baseUrl + pageUrl + '.jpg',
